@@ -144,12 +144,14 @@ public class Services {
         return serviciosweb.findPaciente(documento);
     }
 
-    /**
-     * Web service operation
-     */
+
     @WebMethod(operationName = "logeo")
     public Paciente logeo(@WebParam(name = "documento") String documento, @WebParam(name = "password") String password) {
-        //TODO write your implementation code here:
         return serviciosweb.findByLogeo(documento, password);
+    }
+    
+    @WebMethod(operationName = "updatePaciente")
+    public void updatePaciente(@WebParam(name = "paciente") Paciente paciente) {
+       serviciosweb.updatePaciente(paciente);
     }
 }

@@ -1,4 +1,6 @@
 modelodao\PacienteDAO.class
+modelo\PacienteJpaController.class
+modelo\exceptions\NonexistentEntityException.class
 Servicios\Services.class
 Servicios\ServiciosWeb.class
 modelo\CitaDTO.class
@@ -13,6 +15,8 @@ modelodao\prueba.class
 modelo\Medico.class
 modelo\Paciente.class
 servicioposta\resources\JavaEE8Resource.class
+modelo\exceptions\IllegalOrphanException.class
 modelodao\MedicoDAO.class
 modelodao\EspecialidadDAO.class
 servicioposta\JAXRSConfiguration.class
+modelo\exceptions\PreexistingEntityException.class

@@ -65,6 +65,9 @@ public class Paciente implements Serializable {
     private String contrasena;
     /*@OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
     private List<Cita> citaList;*/
+    @Size(max=250)
+    @Column(name="Correo")
+    private String correo;
 
     public Paciente() {
     }
@@ -82,6 +85,18 @@ public class Paciente implements Serializable {
         this.seguroSIS = seguroSIS;
     }
 
+    public Paciente(String dni, String nombre, String apellidoPaterno, String apellidoMaterno, int edad, boolean seguroSIS, String contrasena) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.edad = edad;
+        this.seguroSIS = seguroSIS;
+        this.contrasena = contrasena;
+    }
+    
+    
+    
     public Integer getIdPaciente() {
         return idPaciente;
     }
@@ -177,6 +192,14 @@ public class Paciente implements Serializable {
     @Override
     public String toString() {
         return "modelo.Paciente[ idPaciente=" + idPaciente + " ]";
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
     
 }

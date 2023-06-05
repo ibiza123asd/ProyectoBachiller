@@ -85,4 +85,8 @@ public class ServiciosWeb {
     public Paciente findByLogeo(String documento,String password){
         return pacienteDAO.findPacienteLogin(documento, password);
     }
+    
+    public void updatePaciente(Paciente paciente){
+        this.pacienteDAO.edit(paciente);
+    }
 }

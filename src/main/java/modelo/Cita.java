@@ -40,6 +40,9 @@ public class Cita implements Serializable {
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
     private Paciente idPaciente;
+    @Column(name="costoCita")
+    private Double costoCita;
+    
 
     public Cita() {
     }
@@ -103,6 +106,14 @@ public class Cita implements Serializable {
     @Override
     public String toString() {
         return "modelo.Cita[ idCita=" + idCita + " ]";
+    }
+
+    public Double getCostoCita() {
+        return costoCita;
+    }
+
+    public void setCostoCita(Double costoCita) {
+        this.costoCita = costoCita;
     }
     
 }

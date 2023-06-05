@@ -13,6 +13,7 @@ import javax.persistence.TypedQuery;
 import modelo.Agenda;
 import modelo.Cita;
 import modelo.Paciente;
+import modelo.exceptions.NonexistentEntityException;
 
 /**
  *
@@ -85,4 +86,24 @@ public class PacienteDAO {
             em.close();
         }
     }
+    
+    public void edit(Paciente paciente){
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            em.getTransaction().begin();
+            Paciente pacienteEncontrado = em.find(Paciente.class, paciente.getIdPaciente());
+            System.out.println("Entrando acá");
+            pacienteEncontrado.setContrasena(paciente.getContrasena());
+            System.out.println("Entrando acax2");
+            em.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+    
 }
