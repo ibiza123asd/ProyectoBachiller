@@ -30,18 +30,18 @@ public class prueba {
         MedicoDAO medicoDAO = new MedicoDAO(emf);
         CitaDAO citaDAO = new CitaDAO(emf);
         List<AgendaDTO> listado = agendaDAO.listarAgenda(10);
+        Dashboard dashboard = new Dashboard(emf);
         PacienteDAO pacienteDAO = new PacienteDAO(emf);
-        listado.forEach(agendadto -> {
-            System.out.println(agendadto.toString());
-        });
-        Paciente paciente = pacienteDAO.findPaciente("40429532");
-        paciente.setIdPaciente(paciente.getIdPaciente());
-        paciente.setContrasena("olematadorrrrrr");
-        pacienteDAO.edit(paciente);
-        
-        
-        
-    
+        List<Object[]> resultados = dashboard.countAppointmentsByPatient(); // Llama al método que obtiene los resultados
+
+        for (Object[] resultado : resultados) {
+           // Integer idMedicos = (Integer) resultado[0];
+            String nombreMedico = (String) resultado[0];
+            Long cantidadPacientes = (Long) resultado[1];
+
+            System.out.println(nombreMedico+ "\t" +cantidadPacientes);
+            System.out.println("-----------------------------");
+        }
 
     }
 }

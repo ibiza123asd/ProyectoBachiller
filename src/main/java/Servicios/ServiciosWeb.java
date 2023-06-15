@@ -1,4 +1,3 @@
-
 package Servicios;
 
 import java.util.List;
@@ -17,17 +16,17 @@ import modelodao.EspecialidadDAO;
 import modelodao.MedicoDAO;
 import modelodao.PacienteDAO;
 import modelo.*;
-
+import modelodao.Dashboard;
 
 public class ServiciosWeb {
 
-    
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("PostaSalud");
     EspecialidadDAO especialidadDAO = new EspecialidadDAO(emf);
     MedicoDAO medicoDAO = new MedicoDAO(emf);
     AgendaDAO agendaDAO = new AgendaDAO(emf);
     CitaDAO citaDAO = new CitaDAO(emf);
     PacienteDAO pacienteDAO = new PacienteDAO(emf);
+    Dashboard dashboard = new Dashboard(emf);
 
     public List<Especialidad> listarEspecialidad() {
         /*try {
@@ -61,32 +60,52 @@ public class ServiciosWeb {
     public void registrarPaciente(Paciente paciente) {
         pacienteDAO.registrarPaciente(paciente);
     }
-    
-    public MedicoDTO encontrarMedico(int idmedico){
+
+    public MedicoDTO encontrarMedico(int idmedico) {
         return medicoDAO.findMedico(idmedico);
     }
-    
-    public Especialidad encontrarEspecialidad(int idEspecialidad){
+
+    public Especialidad encontrarEspecialidad(int idEspecialidad) {
         return especialidadDAO.findEspecialidad(idEspecialidad);
     }
-    
-    public AgendaDTO encontrarAgenda(int idAgenda){
+
+    public AgendaDTO encontrarAgenda(int idAgenda) {
         return agendaDAO.findAgenda(idAgenda);
     }
-    
-    public Paciente findPaciente(String documento){
-        return pacienteDAO.findPaciente(documento);        
+
+    public Paciente findPaciente(String documento) {
+        return pacienteDAO.findPaciente(documento);
     }
-    
-    public List<Object[]> findListaCitas(String documento){
+
+    public List<Object[]> findListaCitas(String documento) {
         return pacienteDAO.findListaCitas(documento);
     }
-    
-    public Paciente findByLogeo(String documento,String password){
+
+    public Paciente findByLogeo(String documento, String password) {
         return pacienteDAO.findPacienteLogin(documento, password);
     }
-    
-    public void updatePaciente(Paciente paciente){
+
+    public void updatePaciente(Paciente paciente) {
         this.pacienteDAO.edit(paciente);
+    }
+
+    public List<Object[]> pacientePorEspecialidad() {
+        return this.dashboard.pacientePorEspecialidad();
+    }
+
+    public List<Object[]> countAppointmentsByPatient() {
+        return this.dashboard.countAppointmentsByPatient();
+    }
+
+    public List<Object[]> countMedicsByShift() {
+        return this.dashboard.countMedicsByShift();
+    }
+
+    public List<Object[]> countPatientsByMedic() {
+        return this.dashboard.countPatientsByMedic();
+    }
+
+    public List<Object[]> countMedicsBySpecialty() {
+        return this.dashboard.countMedicsBySpecialty();
     }
 }

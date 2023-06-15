@@ -36,17 +36,19 @@ public class Services {
 
     /**
      * Web service operation
-     * @return 
+     *
+     * @return
      */
     @WebMethod(operationName = "listarEspecialidades")
-    public List<Especialidad>listarEspecialidades() {
+    public List<Especialidad> listarEspecialidades() {
         return serviciosweb.listarEspecialidad();
     }
 
     /**
      * Web service operation
+     *
      * @param documento
-     * @return 
+     * @return
      */
     @WebMethod(operationName = "findCitas")
     public List<Object[]> findCitas(@WebParam(name = "documento") String documento) {
@@ -55,8 +57,9 @@ public class Services {
 
     /**
      * Web service operation
+     *
      * @param codEspecialidad
-     * @return 
+     * @return
      */
     @WebMethod(operationName = "listarMedicoByEspecialidad")
     public List<MedicoDTO> listarMedicoByEspecialidad(@WebParam(name = "codEspecialidad") int codEspecialidad) {
@@ -66,8 +69,9 @@ public class Services {
 
     /**
      * Web service operation
+     *
      * @param codMedico
-     * @return 
+     * @return
      */
     @WebMethod(operationName = "listarAgendaByMedico")
     public List<AgendaDTO> listarAgendaByMedico(@WebParam(name = "codMedico") int codMedico) {
@@ -144,14 +148,39 @@ public class Services {
         return serviciosweb.findPaciente(documento);
     }
 
-
     @WebMethod(operationName = "logeo")
     public Paciente logeo(@WebParam(name = "documento") String documento, @WebParam(name = "password") String password) {
         return serviciosweb.findByLogeo(documento, password);
     }
-    
+
     @WebMethod(operationName = "updatePaciente")
     public void updatePaciente(@WebParam(name = "paciente") Paciente paciente) {
-       serviciosweb.updatePaciente(paciente);
+        serviciosweb.updatePaciente(paciente);
     }
+
+    @WebMethod(operationName = "countAppointmentsByPatient")
+    public List<Object[]> countAppointmentsByPatient() {
+        return serviciosweb.countAppointmentsByPatient();
+    }
+
+    @WebMethod(operationName = "pacientePorEspecialidad")
+    public List<Object[]> pacientePorEspecialidad() {
+        return serviciosweb.pacientePorEspecialidad();
+    }
+
+    @WebMethod(operationName = "countMedicsByShift")
+    public List<Object[]> countMedicsByShift() {
+        return serviciosweb.countMedicsByShift();
+    }
+
+    @WebMethod(operationName = "countPatientsByMedic")
+    public List<Object[]> countPatientsByMedic() {
+        return serviciosweb.countPatientsByMedic();
+    }
+
+    @WebMethod(operationName = "countMedicsBySpecialty")
+    public List<Object[]> countMedicsBySpecialty() {
+        return serviciosweb.countMedicsBySpecialty();
+    }
+
 }

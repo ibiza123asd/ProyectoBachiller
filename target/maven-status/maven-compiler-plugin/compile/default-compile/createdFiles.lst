@@ -9,6 +9,7 @@ modelo\Cita.class
 modelo\MedicoDTO.class
 modelo\Especialidad.class
 modelodao\CitaDAO.class
+modelodao\Dashboard.class
 modelo\Agenda.class
 modelo\AgendaDTO.class
 modelodao\prueba.class
