@@ -92,4 +92,17 @@ public class AgendaDAO {
             em.close();
         }
     }
+     
+      public List<Object[]> listarAgenda() {
+        String jpql;
+        EntityManager em = getEntityManager();
+        try {
+            jpql = "SELECT A.fechaHora,A.idAgenda,A.idMedico.nombreMedico,A.idMedico.apellidoMat,A.idMedico.apellidoPat,A.turno FROM Agenda A";
+            List<Object[]> lista = this.getEntityManager().createQuery(jpql, Object[].class)
+                    .getResultList();
+            return lista;
+        } finally {
+            em.close();
+        }
+    }
 }

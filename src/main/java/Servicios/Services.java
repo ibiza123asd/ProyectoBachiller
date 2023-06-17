@@ -200,5 +200,9 @@ public class Services {
     public List<Object[]> listarMedicos() {
         return serviciosweb.listarMedicos();
     }
+     @WebMethod(operationName = "listarAllAgenda")
+    public List<Object[]> listarAllAgenda() {
+        return serviciosweb.listarAllAgenda();
+    }
 
 }

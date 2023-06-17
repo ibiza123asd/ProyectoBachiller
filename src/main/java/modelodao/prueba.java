@@ -30,15 +30,19 @@ public class prueba {
         AgendaDAO agendaDAO = new AgendaDAO(emf);
         MedicoDAO medicoDAO = new MedicoDAO(emf);
         CitaDAO citaDAO = new CitaDAO(emf);
-        List<Object[]> listado = medicoDAO.listarMedic();
+        List<Object[]> listado = agendaDAO.listarAgenda();
         Dashboard dashboard = new Dashboard(emf);
         PacienteDAO pacienteDAO = new PacienteDAO(emf);
         List<Object[]> resultados = dashboard.countAppointmentsByPatient(); // Llama al método que obtiene los resultados
 
         for (Object[] resultado : listado) {
-            String nombreMedico = (String) resultado[0];
-            String apellidoMat = (String) resultado[1];
-            System.out.println(nombreMedico + "\t" + apellidoMat);
+            Date fechaHora = (Date) resultado[0];
+            Integer idAgenda = (Integer) resultado[1];
+            String nombremedico = (String) resultado[2];
+            String apellidoMat = (String) resultado[3];
+            String apellidoPat = (String) resultado[4];
+            String fecha = (String) resultado[5];
+            System.out.println(fechaHora +"\t"+idAgenda+"\t"+nombremedico+ "\t"+apellidoPat+"\t"+ apellidoMat+"\t"+fecha);
             System.out.println("-----------------------------");
         }
         /*Especialidad especialidad = new Especialidad();

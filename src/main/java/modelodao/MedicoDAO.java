@@ -100,7 +100,8 @@ public class MedicoDAO {
         String jpql;
         EntityManager em = getEntityManager();
         try {
-            jpql = "SELECT M.idMedico,M.nombreMedico,M.apellidoMat,M.apellidoPat,M.telefono,M.idEspecialidad.idEspecialidad FROM Medico M";
+            jpql = "SELECT M.idMedico,M.nombreMedico,M.apellidoMat,M.apellidoPat,"
+                    + "M.telefono,M.idEspecialidad.idEspecialidad,M.idEspecialidad.nombreEspecialidad FROM Medico M";
             List<Object[]> lista = this.getEntityManager().createQuery(jpql, Object[].class)
                     .getResultList();
             return lista;
