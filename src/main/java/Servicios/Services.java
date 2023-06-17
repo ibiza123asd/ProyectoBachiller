@@ -182,5 +182,23 @@ public class Services {
     public List<Object[]> countMedicsBySpecialty() {
         return serviciosweb.countMedicsBySpecialty();
     }
+    
+     @WebMethod(operationName = "createMedic")
+    public void createMedic(Medico medico) {
+        this.serviciosweb.createMedico(medico);
+    }
+     @WebMethod(operationName = "createEspeciality")
+    public void createEspeciality(Especialidad especialidad) {
+        this.serviciosweb.createEspecialidad(especialidad);
+    }
+     @WebMethod(operationName = "createMAgenda")
+    public void createMAgenda(Agenda agenda) {
+        this.serviciosweb.createAgenda(agenda);
+    }
+    
+     @WebMethod(operationName = "listarMedicos")
+    public List<Object[]> listarMedicos() {
+        return serviciosweb.listarMedicos();
+    }
 
 }

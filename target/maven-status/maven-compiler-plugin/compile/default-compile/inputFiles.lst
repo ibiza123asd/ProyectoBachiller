@@ -9,14 +9,15 @@ C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\servicio
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\CitaDTO.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\exceptions\IllegalOrphanException.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelodao\EspecialidadDAO.java
+C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\MedicoJpaController.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\Servicios\Services.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelodao\AgendaDAO.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\Medico.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\Paciente.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelodao\CitaDAO.java
-C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\PacienteJpaController.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelodao\MedicoDAO.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\MedicoDTO.java
+C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\EspecialidadJpaController.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\Agenda.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\modelo\AgendaDTO.java
 C:\Users\Brandon\Documents\NetBeansProjects\ServicioPosta\src\main\java\Servicios\ServiciosWeb.java

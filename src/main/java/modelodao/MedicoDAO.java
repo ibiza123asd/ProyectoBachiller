@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 import modelo.Cita;
+import modelo.Especialidad;
 import modelo.Medico;
 import modelo.MedicoDTO;
 
@@ -76,4 +77,36 @@ public class MedicoDAO {
             em.close();
         }
     }
+
+    public void createMedico(Medico medico) {
+        EntityManager em = getEntityManager();
+        try {
+            System.out.println("Entrando a crear el medico");
+            em.getTransaction().begin();
+            em.persist(medico);
+            em.getTransaction().commit();
+            System.out.println("Medico creado exitosamente");
+        } catch (Exception e) {
+            System.out.println("Error al crear el medico: " + e.getMessage());
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Object[]> listarMedic() {
+        String jpql;
+        EntityManager em = getEntityManager();
+        try {
+            jpql = "SELECT M.idMedico,M.nombreMedico,M.apellidoMat,M.apellidoPat,M.telefono,M.idEspecialidad.idEspecialidad FROM Medico M";
+            List<Object[]> lista = this.getEntityManager().createQuery(jpql, Object[].class)
+                    .getResultList();
+            return lista;
+        } finally {
+            em.close();
+        }
+    }
+
 }

@@ -108,4 +108,17 @@ public class ServiciosWeb {
     public List<Object[]> countMedicsBySpecialty() {
         return this.dashboard.countMedicsBySpecialty();
     }
+    public List<Object[]> listarMedicos() {
+        return this.medicoDAO.listarMedic();
+    }
+    
+    public void createMedico(Medico medico){
+        this.medicoDAO.createMedico(medico);
+    }
+    public void createEspecialidad(Especialidad especialidad){
+        this.especialidadDAO.createEspecialidad(especialidad);
+    }
+    public void createAgenda(Agenda agenda){
+        this.agendaDAO.createAgenda(agenda);
+    }
 }

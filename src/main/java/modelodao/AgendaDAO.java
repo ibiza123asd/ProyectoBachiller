@@ -13,6 +13,7 @@ import modelo.Agenda;
 import modelo.AgendaDTO;
 import modelo.Cita;
 import java.text.SimpleDateFormat;
+import modelo.Medico;
 
 /**
  *
@@ -69,6 +70,24 @@ public class AgendaDAO {
             agendaDTO.setNombreMedico(agenda.getIdMedico().getNombreMedico());
             agendaDTO.setTurno(agenda.getTurno());
             return agendaDTO;
+        } finally {
+            em.close();
+        }
+    }
+    
+     public void createAgenda(Agenda agenda) {
+        EntityManager em = getEntityManager();
+        try {
+            System.out.println("Entrando a crear la agenda");
+            em.getTransaction().begin();
+            em.persist(agenda);
+            em.getTransaction().commit();
+            System.out.println("Agenda creado exitosamente");
+        } catch (Exception e) {
+            System.out.println("Error al crear el magenda: " + e.getMessage());
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
         } finally {
             em.close();
         }

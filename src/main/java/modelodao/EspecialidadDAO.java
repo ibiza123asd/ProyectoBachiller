@@ -47,5 +47,23 @@ public class EspecialidadDAO {
             em.close();
         }
     }
+    
+     public void createEspecialidad(Especialidad especialidad) {
+        EntityManager em = getEntityManager();
+        try {
+            System.out.println("Entrando a crear la especialidad");
+            em.getTransaction().begin();
+            em.persist(especialidad);
+            em.getTransaction().commit();
+            System.out.println("Especialidad creada exitosamente");
+        } catch (Exception e) {
+            System.out.println("Error al crear la especialidad: " + e.getMessage());
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+        } finally {
+            em.close();
+        }
+    }
 
 }
