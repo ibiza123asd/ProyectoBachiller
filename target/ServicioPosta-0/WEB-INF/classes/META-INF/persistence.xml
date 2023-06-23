@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-  <persistence-unit name="PostaSalud" transaction-type="RESOURCE_LOCAL">
-    <class>modelo.Agenda</class>
-    <class>modelo.Especialidad</class>
-    <class>modelo.Medico</class>
-    <class>modelo.Cita</class>
-    <class>modelo.Paciente</class>
-    <properties>
-      <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.SQLServerPlatform"/>
-      <property name="eclipselink.logging.level.sql" value="FINE"/>
-      <property name="eclipselink.logging.parameters" value="true"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost\PCBRANDON\BRANDON2022:8391;databaseName=PostaSalud"/>
-      <property name="javax.persistence.jdbc.user" value="sa"/>
-      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-      <property name="javax.persistence.jdbc.password" value="1234567"/>
-    </properties>
-  </persistence-unit>
+    <persistence-unit name="PostaSalud" transaction-type="RESOURCE_LOCAL">
+        <class>modelo.Agenda</class>
+        <class>modelo.Especialidad</class>
+        <class>modelo.Medico</class>
+        <class>modelo.Cita</class>
+        <class>modelo.Paciente</class>
+        <properties>
+            <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.SQLServerPlatform"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost\NHUAMAN:8391;databaseName=PostaSalud"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="javax.persistence.jdbc.password" value="Sql2023"/>
+        </properties>
+    </persistence-unit>
 </persistence>
