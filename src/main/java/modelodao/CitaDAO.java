@@ -24,6 +24,9 @@ public class CitaDAO {
         return emf.createEntityManager();
     }
 
+
+    
+    
     public void generarCita(Cita cita) {
         EntityManager em = null;
         try {
@@ -42,6 +45,8 @@ public class CitaDAO {
         }
     }
 
+    
+    
     public CitaDTO findCita(Integer id) {
         EntityManager em = getEntityManager();
         try {      

@@ -5,6 +5,7 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +18,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -32,17 +36,22 @@ public class Cita implements Serializable {
     @Basic(optional = false)
     @Column(name = "idCita")
     private Integer idCita;
+    @JoinColumn(name = "idPaciente",referencedColumnName = "idPaciente")
+    @ManyToOne(fetch=FetchType.LAZY)
+    private Paciente idPaciente;
+    @JoinColumn(name = "idMedico",referencedColumnName = "idMedico")
+    @ManyToOne(fetch=FetchType.LAZY)
+    private Medico idMedico;
     @Column(name = "Orden")
     private Integer orden;
-    @JoinColumn(name = "idMedico", referencedColumnName = "idMedico")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Medico idMedico;
-    @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Paciente idPaciente;
-    @Column(name="costoCita")
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "costoCita")
     private Double costoCita;
-    
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "fechaHora")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaHora;
 
     public Cita() {
     }
@@ -50,6 +59,11 @@ public class Cita implements Serializable {
     public Cita(Integer idCita) {
         this.idCita = idCita;
     }
+
+    /*public Cita(Integer idCita, Date fechaHora) {
+        this.idCita = idCita;
+        this.fechaHora = fechaHora;
+    }*/
 
     public Integer getIdCita() {
         return idCita;
@@ -59,12 +73,12 @@ public class Cita implements Serializable {
         this.idCita = idCita;
     }
 
-    public Integer getOrden() {
-        return orden;
+    public Paciente getIdPaciente() {
+        return idPaciente;
     }
 
-    public void setOrden(Integer orden) {
-        this.orden = orden;
+    public void setIdPaciente(Paciente idPaciente) {
+        this.idPaciente = idPaciente;
     }
 
     public Medico getIdMedico() {
@@ -75,12 +89,28 @@ public class Cita implements Serializable {
         this.idMedico = idMedico;
     }
 
-    public Paciente getIdPaciente() {
-        return idPaciente;
+    public Integer getOrden() {
+        return orden;
     }
 
-    public void setIdPaciente(Paciente idPaciente) {
-        this.idPaciente = idPaciente;
+    public void setOrden(Integer orden) {
+        this.orden = orden;
+    }
+
+    public Double getCostoCita() {
+        return costoCita;
+    }
+
+    public void setCostoCita(Double costoCita) {
+        this.costoCita = costoCita;
+    }
+
+    public Date getFechaHora() {
+        return fechaHora;
+    }
+
+    public void setFechaHora(Date fechaHora) {
+        this.fechaHora = fechaHora;
     }
 
     @Override
@@ -106,14 +136,6 @@ public class Cita implements Serializable {
     @Override
     public String toString() {
         return "modelo.Cita[ idCita=" + idCita + " ]";
-    }
-
-    public Double getCostoCita() {
-        return costoCita;
-    }
-
-    public void setCostoCita(Double costoCita) {
-        this.costoCita = costoCita;
     }
     
 }

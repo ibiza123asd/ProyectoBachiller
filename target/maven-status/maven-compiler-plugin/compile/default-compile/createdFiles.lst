@@ -3,11 +3,13 @@ Servicios\ServiciosWeb.class
 modelo\CitaDTO.class
 modelodao\AgendaDAO.class
 modelo\Cita.class
+modelo\Cita_.class
 modelo\Especialidad.class
 modelodao\CitaDAO.class
 modelodao\Dashboard.class
 modelo\AgendaDTO.class
 modelo\EspecialidadJpaController.class
+modelo\Agenda_.class
 modelo\Medico.class
 modelo\Paciente.class
 servicioposta\resources\JavaEE8Resource.class
@@ -16,9 +18,12 @@ modelodao\MedicoDAO.class
 modelodao\EspecialidadDAO.class
 modelo\MedicoJpaController.class
 servicioposta\JAXRSConfiguration.class
+modelo\Especialidad_.class
 modelo\exceptions\PreexistingEntityException.class
 modelo\exceptions\NonexistentEntityException.class
 Servicios\Services.class
+modelo\Medico_.class
+modelo\Paciente_.class
 modelo\MedicoDTO.class
 modelo\Agenda.class
 modelodao\prueba.class
