@@ -33,18 +33,17 @@ public class prueba {
         List<Object[]> listado = agendaDAO.listarAgenda();
         Dashboard dashboard = new Dashboard(emf);
         PacienteDAO pacienteDAO = new PacienteDAO(emf);
-        List<Object[]> resultados = dashboard.countAppointmentsByPatient(); // Llama al método que obtiene los resultados
-
-        for (Object[] resultado : listado) {
-            Date fechaHora = (Date) resultado[0];
-            Integer idAgenda = (Integer) resultado[1];
-            String nombremedico = (String) resultado[2];
-            String apellidoMat = (String) resultado[3];
-            String apellidoPat = (String) resultado[4];
-            String fecha = (String) resultado[5];
-            System.out.println(fechaHora +"\t"+idAgenda+"\t"+nombremedico+ "\t"+apellidoPat+"\t"+ apellidoMat+"\t"+fecha);
+        List<Date> resultados = citaDAO.listarAllCitas(); // Llama al método que obtiene los resultados
+        List<CitaDTO> citasDTO = citaDAO.listarCitasByIdPaciente(4007);
+        for (CitaDTO citaDTO: citasDTO) {
+  
+            System.out.println(citaDTO.toString());
             System.out.println("-----------------------------");
         }
+        
+        CitaDTO citadto = citaDAO.encontrarUltimaCita();
+        System.out.println(citadto.toString());
+       // System.out.println("Ultimo registro:" +citaDAO.obtenerUltimoCodigoRegistro());
         /*Especialidad especialidad = new Especialidad();
         especialidad.setIdEspecialidad(2);
         Medico medico = new Medico();

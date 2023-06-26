@@ -15,6 +15,8 @@ public class CitaDTO {
     private Integer idPaciente;
     private String nombrePaciente;
     private Integer orden;
+    private String fechaHora;
+    private Double costo;
 
     public CitaDTO() {
     }
@@ -62,8 +64,9 @@ public class CitaDTO {
 
     @Override
     public String toString() {
-        return "CitaDTO{" + "idCita=" + idCita + ", idMedico=" + idMedico + ", nombreMedico=" + nombreMedico + ", idPaciente=" + idPaciente + ", nombrePaciente=" + nombrePaciente + '}';
+        return "CitaDTO{" + "idCita=" + idCita + ", idMedico=" + idMedico + ", nombreMedico=" + nombreMedico + ", idPaciente=" + idPaciente + ", nombrePaciente=" + nombrePaciente + ", orden=" + orden + ", fechaHora=" + fechaHora + ", costo=" + costo + '}';
     }
+ 
 
     public Integer getOrden() {
         return orden;
@@ -71,6 +74,22 @@ public class CitaDTO {
 
     public void setOrden(Integer orden) {
         this.orden = orden;
+    }
+
+    public String getFechaHora() {
+        return fechaHora;
+    }
+
+    public void setFechaHora(String fechaHora) {
+        this.fechaHora = fechaHora;
+    }
+
+    public Double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Double costo) {
+        this.costo = costo;
     }
 
     

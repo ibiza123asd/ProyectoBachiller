@@ -4,6 +4,7 @@
  */
 package Servicios;
 
+import java.util.Date;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -204,5 +205,22 @@ public class Services {
     public List<Object[]> listarAllAgenda() {
         return serviciosweb.listarAllAgenda();
     }
-
+    
+     
+    @WebMethod(operationName = "listarAllCitas")
+    public List<Date> listarAllCitas() {
+        //TODO write your implementation code here:
+        return serviciosweb.listarAllCitas();
+    }
+    
+    @WebMethod(operationName = "encontrarCitaUltima")
+    public CitaDTO encontrarCitaUltima() {
+        return serviciosweb.encontrarCitaUltima();
+    }
+    
+    @WebMethod(operationName = "listarCitasByIdPaciente")
+    public List<CitaDTO> listarCitasByIdPacienteo(@WebParam(name = "idPaciente") int idPaciente) {
+        //TODO write your implementation code here:
+        return serviciosweb.encontrarCitasporIdPaciente(idPaciente);
+    }
 }

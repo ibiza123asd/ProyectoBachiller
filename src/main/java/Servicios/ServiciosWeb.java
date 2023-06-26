@@ -1,5 +1,6 @@
 package Servicios;
 
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,6 +52,14 @@ public class ServiciosWeb {
 
     public CitaDTO encontrarCita(int codigo) {
         return citaDAO.findCita(codigo);
+    }
+    
+     public List<CitaDTO> encontrarCitasporIdPaciente(int codigo) {
+        return citaDAO.listarCitasByIdPaciente(codigo);
+    }
+    
+    public CitaDTO encontrarCitaUltima() {
+        return citaDAO.encontrarUltimaCita();
     }
 
     public int encontrarUltimoRegistro() {
@@ -127,5 +136,9 @@ public class ServiciosWeb {
 
     public void createAgenda(Agenda agenda) {
         this.agendaDAO.createAgenda(agenda);
+    }
+    
+    public List<Date> listarAllCitas() {
+        return this.citaDAO.listarAllCitas();
     }
 }
