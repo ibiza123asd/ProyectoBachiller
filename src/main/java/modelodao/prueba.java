@@ -34,15 +34,13 @@ public class prueba {
         Dashboard dashboard = new Dashboard(emf);
         PacienteDAO pacienteDAO = new PacienteDAO(emf);
         List<Date> resultados = citaDAO.listarAllCitas(); // Llama al método que obtiene los resultados
-        List<CitaDTO> citasDTO = citaDAO.listarCitasByIdPaciente(4007);
+        List<CitaDTO> citasDTO = citaDAO.listarCitasByIdPaciente(1);
         for (CitaDTO citaDTO: citasDTO) {
   
             System.out.println(citaDTO.toString());
             System.out.println("-----------------------------");
         }
         
-        CitaDTO citadto = citaDAO.encontrarUltimaCita();
-        System.out.println(citadto.toString());
        // System.out.println("Ultimo registro:" +citaDAO.obtenerUltimoCodigoRegistro());
         /*Especialidad especialidad = new Especialidad();
         especialidad.setIdEspecialidad(2);

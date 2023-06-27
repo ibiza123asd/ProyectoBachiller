@@ -17,9 +17,12 @@ public class CitaDTO {
     private Integer orden;
     private String fechaHora;
     private Double costo;
-
+    private String nombreEspecialidad;
+    private String apeMatMedico;
+    private String apePatMedico;
     public CitaDTO() {
     }
+    
     
     
     public Integer getIdCita() {
@@ -64,8 +67,10 @@ public class CitaDTO {
 
     @Override
     public String toString() {
-        return "CitaDTO{" + "idCita=" + idCita + ", idMedico=" + idMedico + ", nombreMedico=" + nombreMedico + ", idPaciente=" + idPaciente + ", nombrePaciente=" + nombrePaciente + ", orden=" + orden + ", fechaHora=" + fechaHora + ", costo=" + costo + '}';
+        return "CitaDTO{" + "idCita=" + idCita + ", idMedico=" + idMedico + ", nombreMedico=" + nombreMedico + ", idPaciente=" + idPaciente + ", nombrePaciente=" + nombrePaciente + ", orden=" + orden + ", fechaHora=" + fechaHora + ", costo=" + costo + ", nombreEspecialidad=" + nombreEspecialidad + '}';
     }
+
+   
  
 
     public Integer getOrden() {
@@ -90,6 +95,30 @@ public class CitaDTO {
 
     public void setCosto(Double costo) {
         this.costo = costo;
+    }
+
+    public String getNombreEspecialidad() {
+        return nombreEspecialidad;
+    }
+
+    public void setNombreEspecialidad(String nombreEspecialidad) {
+        this.nombreEspecialidad = nombreEspecialidad;
+    }
+
+    public String getApeMatMedico() {
+        return apeMatMedico;
+    }
+
+    public void setApeMatMedico(String apeMatMedico) {
+        this.apeMatMedico = apeMatMedico;
+    }
+
+    public String getApePatMedico() {
+        return apePatMedico;
+    }
+
+    public void setApePatMedico(String apePatMedico) {
+        this.apePatMedico = apePatMedico;
     }
 
     

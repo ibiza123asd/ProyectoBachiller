@@ -10,7 +10,9 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import modelo.Cita;
 import modelo.CitaDTO;
+import modelo.Especialidad;
 import modelo.Medico;
+import modelo.MedicoDTO;
 import modelo.Paciente;
 
 /**
@@ -134,6 +136,11 @@ public class CitaDAO {
                 citadto.setOrden(cita.getOrden());
                 citadto.setFechaHora(cita.getFechaHora().toString());
                 citadto.setIdCita(cita.getIdCita());
+                citadto.setIdMedico(cita.getIdMedico().getIdMedico());
+                citadto.setApeMatMedico(cita.getIdMedico().getApellidoMat());
+                citadto.setApePatMedico(cita.getIdMedico().getApellidoPat());
+                MedicoDTO medico = new MedicoDAO(emf).findMedico(cita.getIdMedico().getIdMedico());
+                citadto.setNombreEspecialidad(medico.getNombreEspecialidad());
                 return citadto;
             }).forEachOrdered(citadto -> {
                 citasDTO.add(citadto);
