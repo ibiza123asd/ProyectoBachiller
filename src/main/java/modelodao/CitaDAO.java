@@ -1,5 +1,6 @@
 package modelodao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -122,6 +123,7 @@ public class CitaDAO {
         EntityManager em = getEntityManager();
         List<CitaDTO> citasDTO;
         try {
+             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             jpql = "SELECT c FROM Cita as c Where c.idPaciente.idPaciente=:idPaciente";
             TypedQuery<Cita> query = (TypedQuery<Cita>) this.getEntityManager().createQuery(jpql, Cita.class);
             query.setParameter("idPaciente", idPaciente);
@@ -134,7 +136,7 @@ public class CitaDAO {
                 citadto.setNombrePaciente(cita.getIdPaciente().getNombre());
                 citadto.setCosto(cita.getCostoCita());
                 citadto.setOrden(cita.getOrden());
-                citadto.setFechaHora(cita.getFechaHora().toString());
+                citadto.setFechaHora(formatoFecha.format(cita.getFechaHora()));
                 citadto.setIdCita(cita.getIdCita());
                 citadto.setIdMedico(cita.getIdMedico().getIdMedico());
                 citadto.setApeMatMedico(cita.getIdMedico().getApellidoMat());
@@ -150,4 +152,41 @@ public class CitaDAO {
         }
         return citasDTO;
     }
+    
+    public List<CitaDTO> listarCitasByIdMedico(int idMedico) {
+        String jpql;
+        EntityManager em = getEntityManager();
+        List<CitaDTO> citasDTO;
+        try {
+            jpql = "SELECT c FROM Cita as c Where c.idMedico.idMedico=:idMedico";
+             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            TypedQuery<Cita> query = (TypedQuery<Cita>) this.getEntityManager().createQuery(jpql, Cita.class);
+            query.setParameter("idMedico", idMedico);
+            List<Cita> citas = query.getResultList();
+            citasDTO = new ArrayList<>();
+
+            citas.stream().map(cita -> {
+                CitaDTO citadto = new CitaDTO();
+                citadto.setNombreMedico(cita.getIdMedico().getNombreMedico());
+                citadto.setNombrePaciente(cita.getIdPaciente().getNombre());
+                citadto.setCosto(cita.getCostoCita());
+                citadto.setOrden(cita.getOrden());
+                citadto.setFechaHora(formatoFecha.format(cita.getFechaHora()));
+                citadto.setIdCita(cita.getIdCita());
+                citadto.setIdMedico(cita.getIdMedico().getIdMedico());
+                citadto.setApeMatMedico(cita.getIdMedico().getApellidoMat());
+                citadto.setApePatMedico(cita.getIdMedico().getApellidoPat());
+                MedicoDTO medico = new MedicoDAO(emf).findMedico(cita.getIdMedico().getIdMedico());
+                citadto.setNombreEspecialidad(medico.getNombreEspecialidad());
+                return citadto;
+            }).forEachOrdered(citadto -> {
+                citasDTO.add(citadto);
+            });
+        } finally {
+            em.close();
+        }
+        return citasDTO;
+    }
+    
+    
 }

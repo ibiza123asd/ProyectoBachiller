@@ -79,6 +79,10 @@ public class Services {
         //TODO write your implementation code here:
         return serviciosweb.listarAgendaByMedico(codMedico);
     }
+    
+    
+    
+    
 
     /**
      * Web service operation
@@ -222,5 +226,11 @@ public class Services {
     public List<CitaDTO> listarCitasByIdPacienteo(@WebParam(name = "idPaciente") int idPaciente) {
         //TODO write your implementation code here:
         return serviciosweb.encontrarCitasporIdPaciente(idPaciente);
+    }
+    
+    @WebMethod(operationName = "listarCitasByIdMedico")
+    public List<CitaDTO> listarCitasByIdMedico(@WebParam(name = "idMedico") int idMedico) {
+        //TODO write your implementation code here:
+        return serviciosweb.encontrarCitasporIdMedico(idMedico);
     }
 }

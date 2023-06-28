@@ -57,6 +57,10 @@ public class ServiciosWeb {
      public List<CitaDTO> encontrarCitasporIdPaciente(int codigo) {
         return citaDAO.listarCitasByIdPaciente(codigo);
     }
+     
+     public List<CitaDTO> encontrarCitasporIdMedico(int codigo) {
+        return citaDAO.listarCitasByIdMedico(codigo);
+    }
     
     public CitaDTO encontrarCitaUltima() {
         return citaDAO.encontrarUltimaCita();
