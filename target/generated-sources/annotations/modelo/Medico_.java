@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import modelo.Agenda;
 import modelo.Especialidad;
 
-@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2023-06-28T00:16:52")
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2023-06-30T17:35:59")
 @StaticMetamodel(Medico.class)
 public class Medico_ { 
 
